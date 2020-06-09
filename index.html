@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	 <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet"> 
+	<title>Lab2 Grocery Store</title>
+</head>
+
+<body>
+
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+  <button class="tablinks" onclick="openInfo(event, 'Shop All')">ShopAll</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3>Client Information</h3>
+  <p>Tell us a bit about you.</p>
+	Choose your diet preference:
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<option value="Vegetarian">Vegetarian Products</option>
+    <option value="GlutenFree">GlutenFree Products</option>
+    <option value="Organic">Organic Products</option>
+    <option value="VegetarianandGlutenFree">Vegetarian and GlutenFree Products</option>
+    <option value="VegetarianandOrganic">Vegetarian and Organic Products</option>
+    <option value="GlutenFreeandOrganic">GlutenFree and Organic Products</option>
+    <option value="None">None</option>
+	</select>
+</div>
+
+<div id="Products" class="tabcontent">
+  <h3>Your targeted products</h3>
+  <p>We preselected products based on your restrictions.</p>
+	 Choose items to buy:
+   <img src="img/apple.png" style="display: none">
+   <img src="img/nectarine.png" style="display: none">
+   <img src="img/brocoli.png" style="display: none">
+   <img src="img/salmon.png" style="display: none">
+   <img src="img/tomato.png" style="display: none">
+   <img src="img/jalapeño.png" style="display: none">
+   <img src="img/spaghetti.png" style="display: none">
+
+	 <div id="displayProduct"></div>
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+</div>
+ 
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>What's in your cart: </p>
+  <div id="displayCart"></div>
+</div>
+
+<div id="Shop All" class="tabcontent">
+  <p>Browse by category: </p>
+  <div id="selection" class="filter">
+  <input id="vegetables" type="radio" name="vegetables" value="vegetables">Vegetables<br>
+  <input id="meat" type="radio" name="meat" value="meat">Meat<br>
+  <input id="fruits" type="radio" name="fruits" value="fruits">Fruits<br>
+  <input id="none" type="radio" name="none" value="none">Show me everything<br>
+  <button id="apply" type="button" style="text-align: center" onclick="applyfilter()">Apply</button>
+  </div>
+
+  <div id="prodsres" class="presult">
+    <h5>Here is the result:</h5>
+
+    <label id="brocolilabel" style="display: none;">
+      <input type="checkbox" name="product" value="brocoli $1.99" >
+      brocoli 1.99$
+      <img id="broc" src="img/brocoli.png">
+    </label>
+
+
+    <label id="jalapeñolabel" style="display: none;">
+      <input type="checkbox" name="product" value="jalapeño $1.93" >
+      jalapeño 1.93$
+      <img id="j" src="img/jalapeño.png">
+    </label>
+
+
+    <label id="applelabel" style="display: none;">
+      <input type="checkbox" name="product" value="organic apple $5.99" >
+      organic apple 5.99$
+      <img id="a" src="img/apple.png">
+    </label>
+
+
+    <label id="mushroomlabel" style="display: none;">
+      <input type="checkbox" name="product" value="mushroom $3.99" >
+      mushroom 3.99$
+      <img id="m" src="img/mushroom.png">
+    </label>
+
+
+    <label id="tomatoeslabel" style="display: none;">
+      <input type="checkbox" name="product" value="organic tomato $9.15">
+      organic tomatoes 9.15$
+      <img id="t" src="img/tomato.png">
+    </label>
+
+
+    <label id="salmonlabel" style="display: none;">
+      <input type="checkbox" name="product" value="salmon $10.00">
+      salmon 10.00$
+      <img id="s" src="img/salmon.png">
+    </label>
+
+    <label id="breadlabel" style="display: none;">
+      <input type="checkbox" name="product" value="bread $2.35">
+      bread 2.35$
+      <img id="bre" src="img/bread.png">
+    </label>
+
+    <label id="nectarinelabel" style="display: none;">
+      <input type="checkbox" name="product" value="nectarine $4.93">
+      nectarine 4.93$
+      <img id="n" src="img/nectarine.png">
+    </label>
+
+    <button id="addCart" type="button" class="block" onclick="selectedItems()">
+    Add selected items to cart.
+  </button>
+    
+
+</div>
+
+<p id="Sig" class="sig">Runnan Guo(8533795)</p>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
